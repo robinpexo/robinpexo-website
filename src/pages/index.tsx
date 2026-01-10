@@ -1,7 +1,6 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
@@ -10,38 +9,43 @@ import styles from './index.module.css';
 const socialLinks = [
   {
     label: 'YouTube',
-    href: '#',
+    href: 'https://www.youtube.com/@RobinPexo',
     icon: '/img/social/youtube.svg',
   },
   {
     label: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/robinpexo',
     icon: '/img/social/instagram.svg',
   },
   {
     label: 'TikTok',
-    href: '#',
+    href: 'https://www.tiktok.com/@robinpexo',
     icon: '/img/social/tiktok.svg',
   },
   {
     label: 'X',
-    href: '#',
+    href: 'https://x.com/robinpexo',
     icon: '/img/social/x.svg',
   },
   {
     label: 'Threads',
-    href: '#',
+    href: 'https://www.threads.com/@robinpexo',
     icon: '/img/social/threads.svg',
   },
   {
     label: 'Facebook',
-    href: '#',
+    href: 'https://www.facebook.com/robinpexo',
     icon: '/img/social/facebook.svg',
   },
   {
     label: 'GitHub',
-    href: '#',
+    href: 'https://github.com/robinpexo',
     icon: '/img/social/github.svg',
+  },
+  {
+    label: 'Telegram',
+    href: 'https://t.me/RobinPexo',
+    icon: '/img/social/telegram.svg',
   },
 ];
 
@@ -53,7 +57,7 @@ const projects = [
     logo: '/img/docusaurus.png',
     links: [
       {label: 'Website', href: '#'},
-      {label: 'App Store', href: '#', kind: 'appstore'},
+      {label: 'App Store', href: '#'},
     ],
   },
   {
@@ -63,7 +67,7 @@ const projects = [
     logo: '/img/undraw_docusaurus_react.svg',
     links: [
       {label: 'Website', href: '#'},
-      {label: 'Google Play', href: '#', kind: 'playstore'},
+      {label: 'Google Play', href: '#'},
     ],
   },
   {
@@ -75,22 +79,36 @@ const projects = [
   },
 ];
 
+const latestVideos = [
+  {
+    title: 'Latest Video 1',
+    href: 'https://www.youtube.com/watch?v=aQekMYeHcOs&t=10s',
+    id: 'aQekMYeHcOs',
+  },
+  {
+    title: 'Latest Video 2',
+    href: 'https://www.youtube.com/watch?v=dHd-_EJXFgk&t=19s',
+    id: 'dHd-_EJXFgk',
+  },
+  {
+    title: 'Latest Video 3',
+    href: 'https://www.youtube.com/watch?v=5pRJNiHWDnA&t=33s',
+    id: '5pRJNiHWDnA',
+  },
+  {
+    title: 'Latest Video 4',
+    href: 'https://youtu.be/A4Ut4duIhyU',
+    id: 'A4Ut4duIhyU',
+  },
+];
+
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
           Robin Pexo
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
       </div>
     </header>
   );
@@ -104,13 +122,6 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main className={styles.main}>
         <section className={clsx('container', styles.aboutSection)}>
-          <div className={styles.frameImage}>
-            <img
-              src="/img/undraw_docusaurus_tree.svg"
-              alt="Sample portrait"
-              className={styles.image}
-            />
-          </div>
           <div className={styles.aboutContent}>
             <Heading as="h2">About Me</Heading>
             <p>
@@ -128,7 +139,9 @@ export default function Home(): ReactNode {
               <Link
                 key={link.label}
                 className={styles.socialCard}
-                to={link.href}>
+                to={link.href}
+                target="_blank"
+                rel="noopener noreferrer">
                 <span className={styles.socialIcon}>
                   <img src={link.icon} alt="" aria-hidden="true" />
                 </span>
@@ -153,68 +166,40 @@ export default function Home(): ReactNode {
                     {project.links.map((link) => (
                       <Link
                         key={link.label}
-                        className={clsx(
-                          styles.projectButton,
-                          link.kind && styles.storeButton,
-                          link.kind === 'appstore' && styles.appStoreButton,
-                          link.kind === 'playstore' && styles.playStoreButton,
-                        )}
+                        className={styles.projectButton}
                         to={link.href}>
-                        {link.kind === 'appstore' && (
-                          <>
-                            <span className={styles.storeIcon}>
-                              <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M16.9 13.1c0 1.9 1.6 2.5 1.6 2.5s-1.1 3.3-3.1 3.3c-1 0-1.4-.7-2.6-.7s-1.6.7-2.6.7c-1.9 0-3.4-3.1-3.4-5.6 0-2.5 1.6-3.8 3.2-3.8 1 0 2 .7 2.6.7.6 0 1.6-.8 2.8-.7.5 0 2.1.2 3 1.6-2.7 1.6-1.5 4.7-1.5 4.7zM14.8 5.4c.6-.7 1-1.7.9-2.7-.9.1-2 .6-2.6 1.3-.6.7-1.1 1.7-1 2.7 1 .1 2.1-.4 2.7-1.3z" />
-                              </svg>
-                            </span>
-                            <span className={styles.storeText}>
-                              <span className={styles.storeEyebrow}>
-                                Download on the
-                              </span>
-                              <span className={styles.storeBrand}>
-                                App Store
-                              </span>
-                            </span>
-                          </>
-                        )}
-                        {link.kind === 'playstore' && (
-                          <>
-                            <span className={styles.storeIcon}>
-                              <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <polygon
-                                  fill="#34a853"
-                                  points="5,4 14,12 5,20"
-                                />
-                                <polygon
-                                  fill="#4285f4"
-                                  points="14,12 19,9 21,12 19,15"
-                                />
-                                <polygon
-                                  fill="#fbbc05"
-                                  points="5,4 19,9 14,12"
-                                />
-                                <polygon
-                                  fill="#ea4335"
-                                  points="5,20 19,15 14,12"
-                                />
-                              </svg>
-                            </span>
-                            <span className={styles.storeText}>
-                              <span className={styles.storeEyebrow}>
-                                Get it on
-                              </span>
-                              <span className={styles.storeBrand}>
-                                Google Play
-                              </span>
-                            </span>
-                          </>
-                        )}
-                        {!link.kind && <span>{link.label}</span>}
+                        {link.label}
                       </Link>
                     ))}
                   </div>
                 </div>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={clsx('container', styles.videosSection)}>
+          <Heading as="h2">Latest Videos</Heading>
+          <div className={styles.videoGrid}>
+            {latestVideos.map((video) => (
+              <Link
+                key={video.id}
+                className={styles.videoCard}
+                to={video.href}
+                target="_blank"
+                rel="noopener noreferrer">
+                <div className={styles.videoThumb}>
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                    alt={video.title}
+                    loading="lazy"
+                  />
+                </div>
+                <div className={styles.videoMeta}>
+                  <Heading as="h3">{video.title}</Heading>
+                  <span className={styles.videoCta}>Watch on YouTube</span>
+                </div>
+              </Link>
             ))}
           </div>
         </section>
