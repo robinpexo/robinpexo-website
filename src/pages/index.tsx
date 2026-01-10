@@ -125,9 +125,27 @@ export default function Home(): ReactNode {
           <div className={styles.aboutContent}>
             <Heading as="h2">About Me</Heading>
             <p>
-              This is a short placeholder paragraph about you. Share your
-              background, what you build, and what inspires your work. Replace
-              this text whenever you are ready.
+              I build thoughtful software and enjoy turning complex ideas into
+              clear, reliable experiences. I focus on creating systems that are
+              fast, dependable, and easy to evolve.
+            </p>
+            <p>
+              I am passionate about continuous learning and personal growth. I
+              like to share what I learn, communicate ideas clearly, and build
+              a body of work that reflects curiosity, care, and long-term
+              thinking.
+            </p>
+            <p>
+              This space is where I collect lessons from projects, experiments,
+              and everyday life. Some notes are technical, others are about
+              mindset, habits, or creative process, but they all point back to
+              the same goal: doing work I am proud of and helping others along
+              the way. If something here resonates, I hope it sparks a useful
+              conversation.
+            </p>
+            <p>
+              Outside of work, I enjoy making YouTube videos, creating apps and
+              websites, and staying active with fitness training.
             </p>
           </div>
         </section>

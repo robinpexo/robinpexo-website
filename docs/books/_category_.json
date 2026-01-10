@@ -1,0 +1,8 @@
+{
+  "label": "Books",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Notes and takeaways from what I read."
+  }
+}
